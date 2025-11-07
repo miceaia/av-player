@@ -1,0 +1,87 @@
+# 🚀 INSTALACIÓN RÁPIDA - Advanced Video Player Pro
+
+## PASO 1: Subir archivos
+
+1. Descarga la carpeta `advanced-video-player-pro`
+2. Sube toda la carpeta a: `wp-content/plugins/`
+3. La ruta final debe ser: `wp-content/plugins/advanced-video-player-pro/`
+
+## PASO 2: Activar el plugin
+
+1. Ve a tu panel de WordPress
+2. Click en `Plugins > Plugins Instalados`
+3. Busca "Advanced Video Player Pro"
+4. Click en "Activar"
+
+## PASO 3: Configurar Bunny.net
+
+### 3.1 Obtener credenciales
+
+Ve a https://dash.bunny.net/ y obtén:
+
+1. **API Key**:
+   - Stream > API
+   - Copia tu API Key
+
+2. **Library ID**:
+   - Stream > Video Libraries
+   - Selecciona tu librería
+   - El ID está en la URL: `https://dash.bunny.net/stream/library/XXXXX`
+
+3. **CDN Hostname**:
+   - En tu Video Library > Settings
+   - Copia el "Video CDN Hostname"
+   - Ejemplo: `vz-12345-678.b-cdn.net`
+
+### 3.2 Configurar en WordPress
+
+1. Ve a `Video Player > Settings`
+2. Completa los 3 campos de Bunny.net Configuration
+3. Click en "Test Connection" para verificar
+4. Si todo está OK, guarda con "Save Settings"
+
+## PASO 4: ¡Usar el plugin!
+
+1. Ve a `Video Player > Add Video`
+2. Tu biblioteca de Bunny.net aparecerá automáticamente
+3. Click en cualquier video
+4. Configura las opciones
+5. Click en "Insert into Post"
+
+## 📝 SHORTCODE BÁSICO
+
+```
+[avp_player src="URL_DEL_VIDEO" type="hls"]
+```
+
+## 🎯 EJEMPLO COMPLETO
+
+```
+[avp_player 
+    src="https://vz-xxxxx.b-cdn.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/playlist.m3u8" 
+    type="hls" 
+    width="100%" 
+    height="500px"
+    autoplay="false"
+    controls="true"]
+```
+
+## ❓ ¿PROBLEMAS?
+
+### Videos no se cargan:
+1. Verifica las credenciales en Settings
+2. Haz click en "Test Connection"
+3. Asegúrate que el CDN Hostname NO tenga https://
+
+### No aparece la biblioteca:
+1. Verifica que tu API Key tenga permisos
+2. Refresca la página
+3. Click en el botón "Refresh"
+
+## 📞 SOPORTE
+
+Lee el README.md completo para más detalles y solución de problemas.
+
+---
+
+¡Listo! Ahora puedes usar videos de Bunny.net en tu WordPress con un solo click.

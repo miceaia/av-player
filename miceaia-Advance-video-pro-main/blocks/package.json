@@ -1,0 +1,11 @@
+{
+  "name": "advanced-video-player-block",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "wp-scripts build",
+    "dev": "wp-scripts start"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^26.0.0"
+  }
+}

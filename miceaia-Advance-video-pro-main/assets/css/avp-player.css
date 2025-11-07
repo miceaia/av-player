@@ -1,0 +1,390 @@
+/**
+ * Advanced Video Player - Estilos del Reproductor
+ */
+
+/* Contenedor principal del reproductor */
+.avp-player-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 20px;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 16 / 9;
+}
+
+.avp-player-wrapper video,
+.avp-player-wrapper iframe {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    object-fit: cover;
+}
+
+.avp-player-wrapper .video-js {
+    position: relative;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.avp-speed-select {
+    display: none;
+    align-items: center;
+    gap: 8px;
+}
+
+.avp-speed-select__label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.avp-speed-select__field {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 6px 28px 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.55);
+    background: rgba(15, 23, 42, 0.85);
+    color: #f8fafc;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    cursor: pointer;
+    position: relative;
+}
+
+.avp-speed-select__field:focus {
+    outline: none;
+    border-color: rgba(96, 165, 250, 0.9);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35);
+}
+
+.avp-speed-select--overlay {
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    z-index: 30;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(10px);
+    color: #f8fafc;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+    pointer-events: auto;
+    display: inline-flex;
+}
+
+.avp-speed-select--overlay .avp-speed-select__label {
+    opacity: 0.85;
+}
+
+.avp-speed-select--inline {
+    align-items: center;
+    color: #f8fafc;
+    display: inline-flex;
+    gap: 6px;
+    margin: 0;
+    padding: 0 12px;
+    background: transparent;
+}
+
+.avp-speed-select--inline .avp-speed-select__field {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    min-width: 3.5em;
+    padding: 0;
+    text-align: center;
+    background-image: none;
+}
+
+.avp-speed-select--inline .avp-speed-select__field:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.avp-speed-select--inline .avp-speed-select__field option {
+    color: #0f172a;
+}
+
+.avp-speed-select--inline .avp-speed-select__label {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.avp-speed-select__field::-ms-expand {
+    display: none;
+}
+
+.avp-speed-select__field {
+    background-image: linear-gradient(45deg, transparent 50%, rgba(248, 250, 252, 0.95) 50%),
+        linear-gradient(135deg, rgba(248, 250, 252, 0.95) 50%, transparent 50%);
+    background-position: calc(100% - 18px) calc(50% - 3px), calc(100% - 12px) calc(50% - 3px);
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+}
+
+.avp-watermark {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(15, 23, 42, 0.72);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1200;
+    max-width: 75%;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.35);
+    backdrop-filter: blur(2px);
+    transition: top 0.8s ease, left 0.8s ease, transform 0.8s ease, opacity 0.8s ease;
+    white-space: normal;
+}
+
+.avp-watermark--immediate {
+    transition: none;
+}
+
+.avp-watermark-line {
+    display: block;
+}
+
+.avp-watermark-line + .avp-watermark-line {
+    margin-top: 2px;
+}
+
+@media (max-width: 640px) {
+    .avp-watermark {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        max-width: 90%;
+    }
+}
+
+/* Overlay de anuncios tipo banner */
+.avp-overlay-ad {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    z-index: 100;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateX(-50%) translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+.avp-overlay-ad .close-overlay {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+}
+
+.avp-overlay-ad .close-overlay:hover {
+    color: #ff0000;
+}
+
+/* Loading spinner */
+.avp-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+}
+
+.avp-loading::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #0096ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Subtítulos personalizados */
+.avp-player-wrapper .vjs-text-track-display {
+    bottom: 80px;
+}
+
+.avp-player-wrapper .vjs-text-track-cue {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+/* Popup personalizado */
+.avp-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.avp-popup-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.avp-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 5px;
+    line-height: 1;
+}
+
+.avp-popup-close:hover {
+    color: #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .avp-player-wrapper {
+        aspect-ratio: 16 / 9;
+    }
+    
+    .avp-player-wrapper .vjs-big-play-button {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+    }
+    
+    .avp-player-wrapper .vjs-big-play-button .vjs-icon-placeholder:before {
+        font-size: 30px;
+    }
+    
+    .avp-ab-loop-controls {
+        bottom: 60px;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+    
+    .avp-ab-loop-controls button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .avp-loop-indicator {
+        font-size: 11px;
+    }
+    
+    .avp-skip-ad {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .avp-player-wrapper .vjs-text-track-cue {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+/* Tema oscuro */
+.avp-player-wrapper.dark-theme {
+    background: #1a1a1a;
+}
+
+.avp-player-wrapper.dark-theme .vjs-control-bar {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+/* Modo teatro */
+.avp-player-wrapper.theater-mode {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    aspect-ratio: auto;
+}
+
+.avp-player-wrapper.theater-mode video {
+    max-height: 80vh;
+}
